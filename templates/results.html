@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block header %}
+    <a href="/" id="backButton">Back</a>
+{% endblock %}
+{% block content %}
+<ul>
+{% for entry in entries %}
+    <li>{{entry}}</li>
+{% endfor %}
+</ul>         
+<div id="optionpanel"> 
+    <form action="/s" method="get" name="sform" accept-charset="utf-8">
+    <p><a href="#" class="button green" onClick="document.sform.submit();return false">Save this list </a> </p>   
+    </form>
+    <p><a href="/?r=y" class="button black">Start Over</a> </p>  
+</div>
+{% endblock %}    
+
+{% block info %}
+    
+{% endblock %}

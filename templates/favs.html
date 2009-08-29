@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block header %}
+    <a href="/" id="backButton">Back</a>
+{% endblock %}
+{% block content %}
+<h1>Favorites</h1>
+<ul>
+    {% for fav in favs %}
+        <li class="arrow"><small>{{fav.created|date:"D, d b Y"}}</small><a href="/f/{{fav.key}}">{{fav.title}} </a></li>   
+       
+    {% endfor %}
+</ul>                
+{% endblock %}    
+
+{% block info %}
+    
+{% endblock %}

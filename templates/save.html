@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block header %}
+    <a href="/" id="backButton">Back</a>
+    
+    <a href="#" class="nav Action"  onClick="document.sform.submit();return false">Save</a>
+    
+{% endblock %}
+{% block content %}
+  
+<h1>Add to favorites</h1>
+<form action="/s" method="post" name="sform" accept-charset="utf-8"> 
+<ul class="form">
+	<li><input type="text" name="title" value="Title" id="title" onclick="clickclear(this, 'Title')" onblur="clickrecall(this,'Title')" /></li>
+</ul>    
+</form> 
+<h1>Names</h1>
+<ul>
+{% for entry in entries %}
+    <li>{{entry}}</li>
+{% endfor %}
+</ul>
+{% endblock %}    
+
+{% block info %}
+    
+{% endblock %}

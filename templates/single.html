@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block javascript %}
+<script language="javascript"> 
+<!--
+var state = 'none';
+
+function showhide(layer_ref) {
+
+if (state == 'block') { 
+state = 'none'; 
+} 
+else { 
+state = 'block'; 
+} 
+if (document.getElementById &&!document.all) { 
+hza = document.getElementById(layer_ref); 
+hza.style.display = state; 
+} 
+} 
+//--> 
+</script>
+
+<script type="text/javascript" charset="utf-8">
+	window.onload = function() {
+	  setTimeout(function(){window.scrollTo(0, 1);}, 100);
+	}
+</script>    
+{% endblock %}
+{% block header %}
+    <a href="/" id="backButton">Back</a>
+{% endblock %}
+{% block content %}
+<h1>{{item.title}}</h1>                
+<ul>
+{% for e in item.names %}
+    <li>{{e}}</li>
+{% endfor %}
+</ul>
+
+<h3>Ruffled order</h3>
+<ul>
+{% for e in item.ruffled %}
+    <li>{{e}}</li>
+{% endfor %}
+</ul>           
+<p><a href="#" class="white button" onclick="showhide('optionpanel');">Delete</a></p>
+<p><a href="/?r=y" class="green button" >Start New</a></p>
+
+    <div id="optionpanel"  style="display: none"> 
+        <form action="/d/{{item.key}}" method="post" name="sform" accept-charset="utf-8">
+        <p><a href="#" class="button red" onClick="document.sform.submit();return false">Sure?</a> </p>   
+        <p><a href="#" onclick="showhide('optionpanel');" class="button white">Cancel</a> </p>  
+        </form>
+    </div>
+    
+{% endblock %}    
+
+{% block info %}
+    
+{% endblock %}

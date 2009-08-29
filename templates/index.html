@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}  
+<form name="rform" method="post" accept-charset="utf-8">
+ <ul class="form">
+     <li>
+         <textarea onclick="clickclear(this, 'Names')" onblur="clickrecall(this,'Names')" name="names">{{text}}</textarea>
+     </li> 
+ </ul>
+<p><a href="#" class="button white" onClick="document.rform.submit();return false">Ruffle</a> </p>     
+</form>
+
+{% endblock %}           
+
+{% block info %}
+{% if user %}
+<ul class="individual">
+	<li><a href="/?r=1">Start Over</a></li>
+	<li><a href="/f">Favorites</a></li>
+</ul>          
+{% endif %}
+
+{% if not user %}
+<ul class="data">
+    <li><p>Enter one name per line and Ruffle!</p></li>
+</ul>        
+{% endif %}
+
+{% endblock %}          
+
+{% block footer %}
+<p><strong>Best enjoyed on an  iPhone</strong><br />Made by <a href="http://pradeepgowda.com/">Pradeep Gowda</a> for <a href="http://indypy.org/">indypy</a></p>    
+{% endblock %}
